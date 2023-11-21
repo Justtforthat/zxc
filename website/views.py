@@ -1,14 +1,9 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from . import db
-from .models import User, Product, Computer
-
+from .models import User, Product, Computer, Comment
 
 views = Blueprint('views', __name__)
-
-
-@views.route('/', methods=['GET', 'POST'])
-
 
 @views.route('/main')
 def main():
@@ -32,13 +27,6 @@ def add_product():
     db.session.commit()
     flash('Product added to profile!', category='success')
     return redirect(url_for('views.profile'))
-
-@views.route('/hello')
-def hello():
-    return "<p>hello</p>"
-
-
-
 
 
 @views.route('/delete-product/<int:product_id>', methods=['POST'])
@@ -71,31 +59,22 @@ def my_computers():
     user_computers = Computer.query.filter_by(user_id=current_user.id).all()
     return render_template('my_computers.html', computers=user_computers, user=current_user)
 
-@views.route('/pc')
-def pc():
-    # Display a list of all computers. Modify query as needed.
-    all_computers = Computer.query.all()
-    return render_template('pc.html', computers=all_computers, user=current_user)
 
-@views.route('/pc2')
-def pc2():
-    return render_template("pc2.html", user=current_user)
+@views.route('/computer/<int:computer_id>', methods=['GET', 'POST'])
+def computer(computer_id):
+    computer = Computer.query.get_or_404(computer_id)
+    comments = Comment.query.filter_by(computer_id=computer_id).all()
 
-@views.route('/pc3')
-def pc3():
-    return render_template("pc3.html", user=current_user)
+    if request.method == 'POST' and current_user.is_authenticated:
+        comment_text = request.form.get('comment')
+        new_comment = Comment(text=comment_text, computer_id=computer_id, user_id=current_user.id)
+        db.session.add(new_comment)
+        db.session.commit()
+        flash('Comment added!', category='success')
+        return redirect(url_for('views.computer', computer_id=computer_id))
 
-@views.route('/pc4')
-def pc4():
-    return render_template("pc4.html", user=current_user)
+    return render_template('computer_details.html', computer=computer, comments=comments)
 
-@views.route('/pc5')
-def pc5():
-    return render_template("pc5.html", user=current_user)
-
-@views.route('/pc6')
-def pc6():
-    return render_template("pc6.html", user=current_user)
 
 @views.route('/profile')
 @login_required
@@ -103,6 +82,3 @@ def profile():
     user_products = Product.query.filter_by(user_id=current_user.id).all()
     user_computers = Computer.query.filter_by(user_id=current_user.id).all()  # Added line to fetch user computers
     return render_template("profile.html", user=current_user, products=user_products, computers=user_computers)
-
-
-

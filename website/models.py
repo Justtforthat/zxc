@@ -24,6 +24,13 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(150))
     products = db.relationship('Product', backref='user', lazy=True)
     computers = db.relationship('Computer', backref='user', lazy=True)
+class Comment(db.Model):  
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(1000))  # or a suitable length for the comment
+    computer_id = db.Column(db.Integer, db.ForeignKey('computer.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship('User')
+
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
