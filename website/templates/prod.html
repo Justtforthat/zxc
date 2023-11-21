@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>StoreKZ</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prod.css')}}">
+    <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+</head>
+
+<header class="p-3 text-bg-dark" style="background-color: black!important">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/main" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="prod" class="nav-link px-2 text-white">Our Products</a></li>
+          {% if user.is_authenticated %}
+          <a class="nav-link px-2 text-white" id="logout" href="/logout">Logout</a>
+          {% else %}
+          <a class="nav-link px-2 text-white" id="login" href="/login">Login</a>
+          <a class="nav-link px-2 text-white" id="signUp" href="/sign-up">Sign Up</a>
+          {% endif %}
+        </ul>
+        <div class="text-end">
+          {% if user.is_authenticated %}
+          <a href="/profile" type="button" class="btnn btn btn-warning"><i class="fa-solid fa-user" style="color: #000000;"></i></a>
+          {% else %}
+          <a href="/sign-up" type="button" class="btnn btn btn-warning"><i class="fa-solid fa-user" style="color: #000000;"></i></a>
+          {%endif%}
+          <button type="button" class="btnn btn">Cart <i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<body>
+    <div class="prod-photo">
+        <img src="{{url_for ('static', filename = 'img/primg.png')}}" class="img-fluid" alt="">
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/image_2023-04-05_03-50-51.png') }}" alt=""
+                            class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Mars PC, Gaming Desktop (i9-9900K, RTX 2060)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            Windows 11 Home
+                            <br>
+                            Intel® Core™ i9-9900K
+                            <br>
+                            Gigabyte GeForce RTX 2060 OC R2.0
+                            <br>
+                            16GB DDR4 (8GB x 2)
+                        </p>
+                        <p class="price">$1,299.99</p>
+                        <input type="hidden" name="name" value="Mars PC, Gaming Desktop (i9-9900K, RTX 2060)">
+                        <input type="hidden" name="description"
+                            value="Windows 11 Home, Intel® Core™ i9-9900K, Gigabyte GeForce RTX 2060 OC R2.0, 16GB DDR4 (8GB x 2)">
+                        <input type="hidden" name="price" value="1299.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/image_2023-04-05_03-50-51.png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/2(rem).png') }}" alt="" class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Polar Star, Gaming Desktop (i7-13700, RTX 3060)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            Intel® Core™ i7-13700 <br>
+                            MSI GeForce RTX 3060 <br>
+                            Kingston 32GB DDR4 (2x16GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <p class="price">$1,999.99</p>
+                        <input type="hidden" name="name" value="Polar Star, Gaming Desktop (i7-13700, RTX 3060)">
+                        <input type="hidden" name="description" value="Intel® Core™ i7-13700
+                            MSI GeForce RTX 3060
+                            Kingston 32GB DDR4 (2x16GB)
+                            SSD 1 TB">
+                        <input type="hidden" name="price" value="1999.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/2(rem).png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/3.png') }}" alt="" class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Neptune PC, Gaming Desktop (i9-13900K, RTX 4090)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            Intel® Core™ i9-13900K <br>
+                            MSI GeForce RTX 4090 <br>
+                            64GB Corsair Dominator DDR5 (2x32GB) <br>
+                            SSD 2 TB
+                        </p>
+                        <p class="price">$1,399.99</p>
+                        <input type="hidden" name="name" value="Neptune PC, Gaming Desktop (i9-13900K, RTX 4090)">
+                        <input type="hidden" name="description" value="
+                        Intel® Core™ i9-13900K 
+                        MSI GeForce RTX 4090 
+                        64GB Corsair Dominator DDR5 (2x32GB) 
+                        SSD 2 TB">
+                        <input type="hidden" name="price" value="1399.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/3.png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/4.png') }}" alt="" class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Moon, Gaming Desktop (i5-13500, RTX 3050Ti)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            Intel® Core™ i5-13500 <br>
+                            MSI GeForce RTX 3050Ti <br>
+                            Kingston 16GB DDR4 (2x8GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <p class="price">$3,199.99</p>
+                        <input type="hidden" name="name" value="Moon, Gaming Desktop (i5-13500, RTX 3050Ti)">
+                        <input type="hidden" name="description" value="  Intel® Core™ i5-13500 
+                        MSI GeForce RTX 3050Ti 
+                        Kingston 16GB DDR4 (2x8GB) 
+                        SSD 1 TB">
+                        <input type="hidden" name="price" value="3199.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/4.png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/5.png') }}" alt="" class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Jupiter PC, Gaming (Ryzen 7 7700X, RTX 2070)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            AMD Ryzen 7 7700X <br>
+                            Palit GeForce RTX 2070 <br>
+                            Kingston 16GB DDR4 (2x8GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <p class="price">$2,499.99</p>
+                        <input type="hidden" name="name" value="Jupiter PC, Gaming (Ryzen 7 7700X, RTX 2070)">
+                        <input type="hidden" name="description" value="
+                        AMD Ryzen 7 7700X
+                        Palit GeForce RTX 2070
+                        Kingston 16GB DDR4 (2x8GB)
+                        SSD 1 TB">
+                        <input type="hidden" name="price" value="2499.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/5.png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    </form>
+                </div>
+                <div class="col">
+                    <form action="{{ url_for('views.add_product') }}" method="post">
+                        <img src="{{ url_for('static', filename='img/6.png') }}" alt="" class="product-img">
+                        <div class="product-text">
+                            <h3>
+                                Comet PC, Gaming Desktop (Ryzen 9 7950X, RTX 4060)
+                            </h3>
+                        </div>
+                        <hr class="product-line">
+                        <p class="description">
+                            AMD Ryzen 9 7950X <br>
+                            Gigabyte GeForce RTX 4060 <br>
+                            Kingston 32GB DDR4 (4x8GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <p class="price">$2,799.99</p>
+                        <input type="hidden" name="name" value="Comet PC, Gaming Desktop (Ryzen 9 7950X, RTX 4060)">
+                        <input type="hidden" name="description" value="
+                        AMD Ryzen 9 7950X
+                        Gigabyte GeForce RTX 4060
+                        Kingston 32GB DDR4 (4x8GB) 
+                        SSD 1 TB">
+                        <input type="hidden" name="price" value="2799.99">
+                        <input type="hidden" name="image_filename"
+                            value="{{ url_for('static', filename='img/6.png') }}">
+                        <hr class="product-line">
+                        {% if user.is_authenticated %}
+                        <button type="submit" class="product-button">
+                            Add to profile
+                        </button>
+                        {% else %}
+                        <a href="/sign-up" type="button" class="product-button">Add to Profile</a>
+                        {%endif%}
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div>
+                <hr style=" border: 1px solid white!important; opacity: 10!important;">
+                <nav class="navbar">
+                    <ul class="navbar-menu" style="padding-left: 0;">
+                        <p>@ 2023 STORE. All rights reserved</p>
+                    </ul>
+                    <ul class="nav-sec-menu" style="padding-right: 0;">
+                        <a href=""><img class="foot-img"
+                                src="{{url_for ('static', filename = 'img/image_2023-04-05_04-48-28.png')}}"></a>
+
+                    </ul>
+                </nav>
+                <table>
+                    <caption>Delivery</caption>
+                    <tr>
+                        <th>Kazakhstan
+                            <br /> Russia <br />
+                            Europe
+                        </th>
+                    </tr>
+            </div>
+        </div>
+    </footer>
+    <a style="color: black!important;">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4ebea0040a.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4ebea0040a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
