@@ -1,0 +1,36 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC 2
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Polar Star (2023) Gaming Desktop</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/2(rem).png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Polar Star (2023) Gaming Desktop</h3>
+                        </div>
+                        <p class="price">$1,999.00</p>
+                        <p class="info">
+                            Intel® Core™ i7-13700 <br>
+                            MSI GeForce RTX 3060 <br>
+                            Kingston 32GB DDR4 (2x16GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

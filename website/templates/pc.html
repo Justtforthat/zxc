@@ -1,0 +1,40 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Mars PC, Gaming Desktop (i9-9900K, RTX 2060)</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/1.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Mars PC</h3>
+                        </div>
+                        <p class="price">$3,999.00</p>
+                        <p class="info">
+                            Windows 11 Home
+                            <br>
+                            Intel® Core™ i9-9900K
+                            <br>
+                            Gigabyte GeForce RTX 2060 OC R2.0
+                            <br>
+                            16GB DDR4 (8GB x 2)
+                        </p>
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC 4
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Moon, Gaming Desktop (i5-13500, RTX 3050Ti)</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/4.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Moon, Gaming Desktop</h3>
+                        </div>
+                        <p class="price">$3,199.00</p>
+                        <p class="info">
+                            Intel® Core™ i5-13500 <br>
+                            MSI GeForce RTX 3050Ti <br>
+                            Kingston 16GB DDR4 (2x8GB) <br>
+                            SSD 1 TB
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

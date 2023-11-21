@@ -1,0 +1,36 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC 5
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Jupiter PC, Gaming Desktop (Ryzen 7 7700X, RTX 2070)</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/5.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Jupiter PC (2023)</h3>
+                        </div>
+                        <p class="price">$2,499.00</p>
+                        <p class="info">
+                            AMD Ryzen 7 7700X <br>
+                            Palit GeForce RTX 2070 <br>
+                            Kingston 16GB DDR4 (2x8GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

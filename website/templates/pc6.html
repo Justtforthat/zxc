@@ -1,0 +1,37 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC 6
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Comet PC, Gaming Desktop (Ryzen 9 7950X, RTX 4060)</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/6.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Comet PC (2023)</h3>
+                        </div>
+                        <p class="price">$2,799.00</p>
+                        <p class="info">
+                            AMD Ryzen 9 7950X <br>
+                            Gigabyte GeForce RTX 4060 <br>
+                            Kingston 32GB DDR4 (4x8GB) <br>
+                            SSD 1 TB
+                        </p>
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

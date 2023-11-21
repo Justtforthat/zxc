@@ -1,0 +1,36 @@
+{% extends "base_pc.html" %}
+
+{% block title %}
+    PC 3
+{% endblock %}
+
+{% block body %}
+    <h2 class="title">Neptune PC (2023)</h2>
+    <div class="container">
+        <div class="product">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="col">
+                        <img class="product-img img-fluid" src="{{url_for ('static', filename = 'img/3.png')}}" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="product-info">
+                        <div class="product-h">
+                            <h3>Neptune PC (2023)</h3>
+                        </div>
+                        <p class="price">$1,399.00</p>
+                        <p class="info">
+                            Intel® Core™ i9-13900K <br>
+                            MSI GeForce RTX 4090 <br>
+                            64GB Corsair Dominator DDR5 (2x32GB) <br>
+                            SSD 2 TB
+                        </p>
+                        <hr>
+                        <a class="buy" href="prod.html">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

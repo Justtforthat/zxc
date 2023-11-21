@@ -1,0 +1,11 @@
+{% extends "base.html" %} <!-- Replace with the actual name of your base template -->
+
+{% block title %}User Page{% endblock %}
+
+{% block content %}
+  <div class="user-info">
+    <h2>User Information</h2>
+    <p><strong>Username:</strong> {{ user.first_name }}</p> <!-- Assuming 'first_name' is used as the username -->
+    <p><strong>Email:</strong> {{ user.email }}</p>
+  </div>
+{% endblock %}
