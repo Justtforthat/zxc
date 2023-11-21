@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from . import db
-from .models import User, Product
+from .models import User, Product, Computer
 
 
 views = Blueprint('views', __name__)
@@ -13,7 +13,6 @@ views = Blueprint('views', __name__)
 @views.route('/main')
 def main():
     return render_template("index.html", user=current_user)
-
 @views.route('/prod')
 def prod():
     return render_template("prod.html", user=current_user)
@@ -54,9 +53,29 @@ def delete_product(product_id):
     flash('Product has been deleted!', category='success')
     return redirect(url_for('views.profile'))
 
+@views.route('/add_computer/<int:computer_id>')
+@login_required
+def add_computer(computer_id):
+    computer = Computer.query.get(computer_id)
+    if computer and computer.user_id is None:  # Check if computer is not already added by another user
+        computer.user_id = current_user.id
+        db.session.commit()
+        flash('Computer added to your list', 'success')
+    else:
+        flash('Computer not found or already added by someone else', 'error')
+    return redirect(url_for('views.pc'))
+
+@views.route('/my_computers')
+@login_required
+def my_computers():
+    user_computers = Computer.query.filter_by(user_id=current_user.id).all()
+    return render_template('my_computers.html', computers=user_computers, user=current_user)
+
 @views.route('/pc')
 def pc():
-    return render_template("pc.html", user=current_user)
+    # Display a list of all computers. Modify query as needed.
+    all_computers = Computer.query.all()
+    return render_template('pc.html', computers=all_computers, user=current_user)
 
 @views.route('/pc2')
 def pc2():
@@ -82,7 +101,8 @@ def pc6():
 @login_required
 def profile():
     user_products = Product.query.filter_by(user_id=current_user.id).all()
-    return render_template("profile.html", user=current_user, products=user_products)
+    user_computers = Computer.query.filter_by(user_id=current_user.id).all()  # Added line to fetch user computers
+    return render_template("profile.html", user=current_user, products=user_products, computers=user_computers)
 
 
 
