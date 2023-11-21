@@ -7,9 +7,16 @@
     <list default="true" id="d1fae097-0cdc-4150-b556-fb7dc37eda85" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instance/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc2.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc3.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc4.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc5.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/templates/pc6.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/pc6.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/prod.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/prod.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/views.py" afterDir="false" />
@@ -267,7 +274,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700545872481</updated>
       <workItem from="1700545875285" duration="31000" />
-      <workItem from="1700552679282" duration="20997000" />
+      <workItem from="1700552679282" duration="26455000" />
     </task>
     <servers />
   </component>

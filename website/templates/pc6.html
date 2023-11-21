@@ -32,6 +32,26 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Comments Section -->
+        <!-- Make sure the 'computer' variable is passed to the template -->
+        <div class="comments">
+            <h3>Comments</h3>
+            {% for comment in computer.comments %}
+                <div class="comment">
+                    <p><strong>{{ comment.user.first_name }}</strong>: {{ comment.text }}</p>
+                </div>
+            {% endfor %}
+
+            {% if current_user.is_authenticated %}
+                <form method="POST">
+                    <textarea name="comment" required></textarea>
+                    <input type="hidden" name="computer_id" value="{{ computer.id }}">
+                    <button type="submit">Post Comment</button>
+                </form>
+            {% else %}
+                <p>Please <a href="{{ url_for('auth.login') }}">login</a> to post comments.</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
